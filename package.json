@@ -1,0 +1,15 @@
+{
+	"name": "contact-manager",
+	"version": "1.0.0",
+	"description": "A simple contact manager.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node app/server.js",
+		"test": "tape app/**/*test.js"
+	},
+	"author": "jdtibbs",
+	"license": "ISC",
+	"devDependencies": {
+		"tape": "^4.4.0"
+	}
+}
