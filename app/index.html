@@ -2,19 +2,22 @@
 
 <head>
   <title>Hello Riot.</title>
+  <link rel="stylesheet" href="contact-manager.css">
 </head>
 
 <body>
   <!-- place the custom tag anywhere inside the body -->
-  <sample></sample>
+  <contact-manager></contact-manager>
   <!-- include the tag -->
-  <script type="riot/tag" src="tags/sample.tag"></script>
+  <script type="riot/tag" src="tags/contact-manager.tag"></script>
   <!-- include riot.js -->
   <!-- <script src="https://cdn.rawgit.com/riot/riot/master/riot+compiler.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.min.js"></script>
   <!-- mount the tag -->
   <script>
-  riot.mount('sample')
+  riot.mount('contact-manager', {
+    title: 'Contact Manager'
+  })
   </script>
 </body>
 
