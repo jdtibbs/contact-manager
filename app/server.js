@@ -1,9 +1,11 @@
 // see: 
 // https://nodejs.org/dist/latest-v4.x/docs/api/
 (function() {
+	var fs = require('fs');
 	var http = require('http');
 	var path = require('path');
-	var fs = require('fs');
+	var url = require('url');
+
 	var port = process.env.PORT || 8080;
 
 	var mimeTypes = {
@@ -21,14 +23,15 @@
 	// console.log('current working directory: ' + process.cwd());
 
 	http.createServer(function(request, response) {
-		var name = urlFileMap[request.url] || request.url;
+		var pathname = url.parse(request.url).pathname;
+		var name = urlFileMap[pathname] || pathname;
 		getFile(name, response);
 	}).listen(parseInt(port, 10));
 
 	console.log('Server running at http://localhost:' + port);
 
 	function getFile(name, response) {
-		var fileName = 'app' + name;
+		var fileName = 'app' + name; // concat to directory to limit file access.
 		fs.stat(fileName, function(error, stats) {
 			if (error) {
 				console.log('fs.stat error: ' + error + '\n');
