@@ -1,23 +1,37 @@
 <html>
 
 <head>
-  <title>Hello Riot.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.deep_purple-purple.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Contact Manager</title>
   <link rel="stylesheet" href="contact-manager.css">
 </head>
 
 <body>
-  <!-- place the custom tag anywhere inside the body -->
+
   <contact-manager></contact-manager>
-  <!-- include the tag -->
-  <script type="riot/tag" src="tags/contact-manager.tag"></script>
+
+  <!-- include custom riot tag -->
+  <script type="riot/tag" src="tags/contact.manager.html"></script>
+  <script type="riot/tag" src="tags/contacts.html"></script>
+  <script type="riot/tag" src="tags/heading.html"></script>
+
+  <!-- material design lite -->
+  <script type="text/javascript" src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
   <!-- include riot.js -->
-  <!-- <script src="https://cdn.rawgit.com/riot/riot/master/riot+compiler.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.min.js"></script>
-  <!-- mount the tag -->
+  <script src="https://cdn.rawgit.com/riot/riot/master/riot+compiler.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.min.js"></script> -->
+
+  <!-- mount the custom riot tag -->
   <script>
-  riot.mount('contact-manager', {
-    title: 'Contact Manager'
-  })
+  riot.compile(function() {
+    riot.mount('contact-manager', {
+      title: 'Contact Manager'
+    });
+  });
   </script>
 </body>
 
