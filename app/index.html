@@ -15,7 +15,6 @@
 
   <!-- include custom riot tag -->
   <script type="riot/tag" src="tags/contact.manager.html"></script>
-  <script type="riot/tag" src="tags/checkbox.html"></script>
   <script type="riot/tag" src="tags/contacts.html"></script>
   <script type="riot/tag" src="tags/heading.html"></script>
 
@@ -23,16 +22,16 @@
   <script type="text/javascript" src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 
   <!-- include riot.js -->
-  <!-- <script src="https://cdn.rawgit.com/riot/riot/master/riot+compiler.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.min.js"></script>
+  <script src="https://cdn.rawgit.com/riot/riot/master/riot+compiler.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.min.js"></script> -->
 
   <!-- mount the custom riot tag -->
   <script>
   riot.compile(function() {
     riot.mount('contact-manager', {
       title: 'Contact Manager'
-    })
-  })
+    });
+  });
   </script>
 </body>
 
