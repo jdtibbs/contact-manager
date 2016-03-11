@@ -15,9 +15,8 @@
 
   <!-- include custom riot tag -->
   <script type="riot/tag" src="tags/contact-manager.html"></script>
-  <!-- <script type="riot/tag" src="tags/contacts.html"></script> -->
+  <script type="riot/tag" src="tags/contacts.html"></script>
   <script type="riot/tag" src="tags/heading.html"></script>
-
   <script type="riot/tag" src="tags/contact-list.html"></script>
   <script type="riot/tag" src="tags/contact-input.html"></script>
 
@@ -31,14 +30,7 @@
   <!-- mount the custom riot tag -->
   <script>
   riot.compile(function() {
-    riot.mount('contact-manager', {
-      title: 'Contact Manager',
-      items: [{
-        name: 'fred'
-      }, {
-        name: 'sam'
-      }]
-    });
+    riot.mount('contact-manager');
   });
   </script>
 
