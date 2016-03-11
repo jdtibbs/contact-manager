@@ -1,0 +1,56 @@
+<contact-input>
+
+	<form onsubmit={ add }>
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<input id="input" onkeyup={ edit } class="mdl-textfield__input" type="text">
+			<label class="mdl-textfield__label" for="input">Name</label>
+		</div>
+
+		<button disabled={ !text } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Add</button>
+
+		<button disabled={ items.filter(onlyDone).length==0 } onclick={ removeAllDone } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Delete</button>
+	</form>
+
+	<script>
+	this.on('mount', function() {
+		componentHandler.upgradeDom();
+	});
+
+	this.items = opts.items || [];
+
+	edit(e) {
+		this.text = e.target.value;
+	}
+
+	add(e) {
+		if (this.text) {
+			this.items.push({
+				name: this.text
+			});
+			this.text = this.input.value = '';
+		}
+	}
+
+	removeAllDone(e) {
+		this.items = this.items.filter(function(item) {
+			return !item.done
+		})
+	}
+
+	// an two example how to filter items on the list
+	whatShow(item) {
+		return !item.hidden
+	}
+
+	onlyDone(item) {
+		return item.done
+	}
+
+	toggle(e) {
+		var item = e.item
+		item.done = !item.done
+		return true
+	}
+	</script>
+</contact-input>

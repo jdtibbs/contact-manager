@@ -6,10 +6,17 @@
 			<div class="page-content">
 				<div class="mdl-grid">
 
-					<contacts></contacts>
+					<!-- <contacts></contacts> -->
+					<div class="mdl-cell mdl-cell--12-col">
+						<contact-input items={opts.items}></contact-input>
+					</div>
+					<div class="mdl-cell mdl-cell--12-col">
+						<contact-list items={opts.items}></contact-list>
+					</div>
 
 				</div>
 			</div>
 		</main>
 	</div>
+
 </contact-manager>

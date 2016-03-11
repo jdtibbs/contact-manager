@@ -1,66 +1,18 @@
 <contacts>
 
-	<div class="mdl-cell mdl-cell--12-col">
-		<ul>
-			<li each={ items.filter(whatShow) }>
+	<p>contacts</p>
+	<contact-list></contact-list>
+	<contact-input></contact-input>
 
-				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect { completed: done}">
-					<input type="checkbox" checked={ done } onclick={ parent.toggle } class="mdl-checkbox__input">
-					<span class="mdl-checkbox__label"> { title }</span>
-				</label>
-			</li>
-		</ul>
-	</div>
 
-	<div class="mdl-cell mdl-cell--12-col">
-		<form onsubmit={ add }>
-
-			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input id="input" onkeyup={ edit } class="mdl-textfield__input" type="text">
-				<label class="mdl-textfield__label" for="input">Name</label>
-			</div>
-
-			<button disabled={ !text } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Add</button>
-
-			<button disabled={ items.filter(onlyDone).length==0 } onclick={ removeAllDone } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Delete</button>
-		</form>
-	</div>
+	<script type="riot/tag" src="tags/contact-list.html"></script>
+	<script type="riot/tag" src="tags/contact-input.html"></script>
 
 	<script>
-	this.items = opts.items || [];
-
-	edit(e) {
-		this.text = e.target.value;
-	}
-
-	add(e) {
-		if (this.text) {
-			this.items.push({
-				title: this.text
-			});
-			this.text = this.input.value = '';
-		}
-	}
-
-	removeAllDone(e) {
-		this.items = this.items.filter(function(item) {
-			return !item.done
-		})
-	}
-
-	// an two example how to filter items on the list
-	whatShow(item) {
-		return !item.hidden
-	}
-
-	onlyDone(item) {
-		return item.done
-	}
-
-	toggle(e) {
-		var item = e.item
-		item.done = !item.done
-		return true
-	}
+	riot.compile(function() {
+		riot.mount('contact-list');
+		riot.mount('contact-input');
+	});
 	</script>
+
 </contacts>
