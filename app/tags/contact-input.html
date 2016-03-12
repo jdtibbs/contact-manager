@@ -9,23 +9,17 @@
 
 		<button disabled={ !text } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Add</button>
 
-		<button disabled={ items.filter(onlyDone).length==0 } onclick={ removeAllDone } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Delete</button>
+		<button disabled={ opts.items.filter(done).length==0 } onclick={ removeAllDone } class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Delete</button>
 	</form>
 
 	<script>
-	this.on('mount', function() {
-		componentHandler.upgradeDom();
-	});
-
-	this.items = opts.items || [];
-
 	edit(e) {
 		this.text = e.target.value;
 	}
 
 	add(e) {
 		if (this.text) {
-			this.items.push({
+			opts.items.push({
 				name: this.text
 			});
 			this.text = this.input.value = '';
@@ -33,24 +27,14 @@
 	}
 
 	removeAllDone(e) {
-		this.items = this.items.filter(function(item) {
+		opts.items = opts.items.filter(function(item) {
 			return !item.done
 		})
 	}
 
-	// an two example how to filter items on the list
-	whatShow(item) {
-		return !item.hidden
-	}
 
-	onlyDone(item) {
+	done(item) {
 		return item.done
-	}
-
-	toggle(e) {
-		var item = e.item
-		item.done = !item.done
-		return true
 	}
 	</script>
 </contact-input>

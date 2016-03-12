@@ -7,12 +7,16 @@
 		<contact-list items="{items}"></contact-list>
 	</div>
 
-	<script type="riot/tag" src="tags/contact-list.html"></script>
-	<script type="riot/tag" src="tags/contact-input.html"></script>
-
 	<script>
+	this.on('mount', function() {
+		componentHandler.upgradeDom();
+	});
+
 	this.items = [{
 		name: 'jane'
+	}, {
+		name: 'sam',
+		done: true
 	}];
 	</script>
 

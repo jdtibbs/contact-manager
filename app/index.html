@@ -30,7 +30,9 @@
   <!-- mount the custom riot tag -->
   <script>
   riot.compile(function() {
-    riot.mount('contact-manager');
+    riot.mount('contact-manager', {
+      title: 'Contact Manager'
+    });
   });
   </script>
 
