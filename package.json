@@ -9,6 +9,9 @@
   },
   "author": "jdtibbs",
   "license": "ISC",
+  "engines": {
+    "node": "6.11.1"
+  },
   "devDependencies": {
     "tape": "^4.4.0"
   }
